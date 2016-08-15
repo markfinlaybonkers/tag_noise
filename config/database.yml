@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: tag_noise_development
+  database: tag_stream_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: tag_noise
+  #username: tag_stream
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: tag_noise_test
+  database: tag_stream_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: tag_noise_production
-  username: tag_noise
-  password: <%= ENV['TAG_NOISE_DATABASE_PASSWORD'] %>
+  database: tag_stream_production
+  username: tag_stream
+  password: <%= ENV['TAG_STREAM_DATABASE_PASSWORD'] %>
