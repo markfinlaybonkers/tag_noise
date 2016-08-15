@@ -17,9 +17,9 @@ module Streamer
     end
 
     def configure_pusher
-      Pusher.app_id = ' '
-      Pusher.key = ' '
-      Pusher.secret = ' '
+      Pusher.app_id = Rails.application.secrets.pusher_app_id
+      Pusher.key = Rails.application.secrets.pusher_key
+      Pusher.secret = Rails.application.secrets.pusher_secret
       Pusher.cluster = 'eu'
       Pusher.logger = Rails.logger
       Pusher.encrypted = true
@@ -33,10 +33,10 @@ module Streamer
 
     def configure_twitter
       @client = Twitter::Streaming::Client.new do |config|
-        config.consumer_key = ' '
-        config.consumer_secret = ' '
-        config.access_token = ' '
-        config.access_token_secret = ' '
+        config.consumer_key = Rails.application.secrets.twitter_consumer_key
+        config.consumer_secret = Rails.application.secrets.twitter_consumer_secret
+        config.access_token = Rails.application.secrets.twitter_access_token
+        config.access_token_secret = Rails.application.secrets.twitter_access_secret
       end
     end
 
